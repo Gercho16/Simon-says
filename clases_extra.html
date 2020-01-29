@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clase</title>
+</head>
+<body>
+    <script>
+        function divisionEntera(dividendo, divisor) {
+            if ( dividendo - divisor < 0 ) {
+                return 0;
+            } else {
+                return dividendo = divisionEntera(dividendo - divisor, divisor) + 1;
+            }
+        }
+
+        function factorial(numero) {
+            if (!this.cache) {
+                this.cache = {}
+            }
+            if (this.cache[numero]){
+                return this.cache[numero];
+            }
+            if ( numero == 1) {
+                return 1;
+            } else {
+                this.cache[numero] = numero * factorial(numero - 1);
+                debugger;
+                return this.cache[numero];
+            }
+        }
+
+        function crearSaludo(finalDeFrase) {
+            return function(nombre){
+                console.log('Hola,', nombre, finalDeFrase);
+            }
+        }
+        
+        const fernando = {
+            nombre: 'Fernando',
+            apellido: 'Rojas',
+            edad: 23
+        }
+        const cumpleaños = (persona) => persona.edad++;
+        const cumpleañosInmutable = (persona) => ({
+            ...persona,
+            edad: persona.edad + 1,
+        })
+
+        function saludar(saludo='Hola') {
+            console.log(saludo,'mi nombre es:', this.nombre)
+        }
+
+        const saludarFernando =saludar.bind(fernando)
+        // setTimeout(saludar.bind(fernando, 'Hola, che'), 1000)
+        // saludar.call(fernando, 'Hola, che');
+        // saludar.apply(fernando, ['Hola, che'])
+        console.log('Hola mi nombre es fernando');
+        [1,2,3]
+    </script>
+</body>
+</html>
